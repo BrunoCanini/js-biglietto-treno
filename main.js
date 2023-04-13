@@ -6,20 +6,21 @@ alert("Prezzo biglietto 0.21$ al Km, 20% sconto per minorenni, 40% sconto per ov
 
 
 const kmUtente = prompt("Km che si vogliono percorrere?");
-// trasformare stringhe in numeri!
 const prezzoKm = ((kmUtente)*0.21);
 console.log(prezzoKm);
 
-let sconto = null
+let sconto = 0
 
 const etaUtente = prompt("Si prega di inserire l'età");
 
 if (etaUtente < 18) {
-    let sconto = 20%;
+    sconto = 20;
 } else if (etaUtente > 65) {
-    let sconto = 40%;
-} else {
-    let sconto = 0%; 
+    sconto = 40;
 }
 
-const prezzoBiglietto = prezzoKm - sconto
+let prezzoBiglietto = prezzoKm - (prezzoKm * sconto /100);
+prezzoBiglietto = Math.floor(prezzoBiglietto * 100) / 100;
+
+
+console.log(prezzoBiglietto, sconto)
